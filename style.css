@@ -1,191 +1,358 @@
-/* Reset default margin and padding */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  outline: none;
+  border: none;
+  box-sizing: border-box;
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
-/* Style body */
+a {
+  text-decoration: none;
+}
+
+/* light mode & dark mode */
+.light-mode {
+  --bg-color: #f8f9fa;
+  --text-color: #000000;
+}
+
+.dark-mode {
+  --bg-color: #18181b;
+  --text-color: #fff;
+}
+
+/* BASE */
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #fcc143;
-    border-radius: 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Poppins", sans-serif;
 }
 
-/* Style header */
+nav {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav-name {
+  max-width: 100px;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-points {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.nav-points a {
+  position: relative;
+  padding-bottom: 0.75rem;
+  color: var(--text-color);
+  font-weight: bold;
+}
+
+.nav-points a::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--bg-color);
+  transition: all 0.3s ease;
+}
+
+.nav-points a:hover::after {
+  width: 70%;
+}
+
+.button {
+  font-weight: bold;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 5rem 2rem;
+}
+
+.blur {
+  position: absolute;
+  box-shadow: 0 0 1000px 50px #9119c9;
+  z-index: -100;
+}
+
 header {
-    background-color: #fff;
-    color: #000000;
-    padding: 20px;
-    text-align: left;
-    border-radius: 10px;
-    margin-bottom: 20px;
+  position: relative;
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  gap: 2rem;
 }
 
-.bagian {
-    padding-left: 13%;
-    padding-right: 13%;
+header .pengenalan h4 {
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 600;
 }
 
-.nama h1 {
-    margin: 0;
-    font-family: "Fjalla One", sans-serif;
-    text-align: center;
+header .pengenalan h1 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 4rem;
 }
 
-.point {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+header .pengenalan p {
+  margin-bottom: 2rem;
+  color: var(--text-color);
 }
 
-.point-item {
-    text-align: center;
-    margin: 0 10px;
+header .foto img {
+  width: 600px;
+  height: auto;
+  border-radius: 100px;
 }
 
-.point-item img {
-    width: 40px; 
-    height: 40px; 
+section .header {
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  text-align: center;
+  font-size: 2.25rem;
+  font-weight: 600;
 }
 
-.point h3 {
-    display: inline-block;
-    margin-right: 20px;
-    cursor: pointer;
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-/* Style homepage */
-.home {
-    text-align: left;
-    background-color: #fff;
-    padding: 20px; /* Ruang di sekitar teks */
-    border-radius: 20px; /* Jari-jari melengkung */
-    display: inline-block;
-    background-clip: padding-box;
-    margin-bottom: 20px; /* Penambahan margin bawah untuk memisahkan dengan galeri */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
 }
 
-.home h2{
-    text-align: center;
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
 }
 
-.home p{
-    margin-left: 20px;
-    font-size: 20px;
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
-.home img {
-    width: 200px; /* Gambar akan mengisi lebar yang tersedia */
-    height: auto;
-    float: left;
+.text {
+  color: #3533b4;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
 }
 
-/* Style galery */
-.galeri {
-    background-color: #fff;
-    padding: 15px; /* Ruang di sekitar teks */
-    border-radius: 20px; /* Jari-jari melengkung */
-    display: inline-block;
-    background-clip: padding-box;
-    margin-bottom: 20px; /* Penambahan margin bawah untuk memisahkan dengan home */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
 }
 
-.galeri h2{
-    text-align: center;
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-.galeri-content {
-    display: flex;
-    justify-content: left;
-    flex-wrap: wrap;
+.active,
+.dot:hover {
+  background-color: #717171;
 }
 
-.galeri img {
-    width: 255px; /* Gambar akan mengisi lebar yang tersedia */
-    height: auto;
-    margin: 10px; /* Jarak antara gambar */
-    padding: 10px; /* Ruang dalam gambar */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-/* Style blog posts */
-.artikel {
-    background-color: #fff;
-    padding: 15px; /* Ruang di sekitar teks */
-    border-radius: 20px; /* Jari-jari melengkung */
-    display: flex; /* Mengatur tata letak flexbox */
-    flex-wrap: wrap; /* Mengatur agar konten dapat melilit ke baris baru */
-    justify-content: space-between; /* Menempatkan elemen-elemen ke tepi kanan dan kiri */
-    align-items: center; /* Menyamakan tinggi elemen-elemen */
-    margin-bottom: 20px; /* Penambahan margin bawah untuk memisahkan dengan home */
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.artikel h2 {
-    text-align: center;
+@media only screen and (max-width: 300px) {
+  .prev,
+  .next,
+  .text {
+    font-size: 11px;
+  }
 }
 
-.blog-post {
-    margin-bottom: 30px;
+button {
+  position: absolute;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 100;
 }
 
-.blog-post h3 {
-    margin-bottom: 10px;
+.prev {
+  left: 0;
 }
 
-.blog-post img {
-    width: 300px; /* Lebar gambar */
-    height: auto; /* Menyesuaikan tinggi gambar sesuai proporsi */
-    margin-right: 20px; /* Jarak antara gambar dan teks */
-    border-radius: 10px; /* Jari-jari melengkung untuk gambar */
+.next {
+  right: 0;
 }
 
-.blog-post p {
-    margin-bottom: 20px;
-    font-size: 15px;
+.sub-header {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  color: #b9b9b9;
 }
 
-
-/* Style contact */
-.kontak {
-    background-color: #fff; /* Warna latar belakang */
-    color: rgb(0, 0, 0); /* Warna teks */
-    padding: 20px; /* Ruang di sekitar teks */
-    text-align: center; /* Penjajaran teks */
-    border-radius: 20px; /* Jari-jari melengkung */
+.blog1,
+.blog2 {
+  margin-top: 4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
-.kontak h2 {
-    margin-bottom: 10px; /* Jarak bawah dari judul */
+.blog1 .gambar,
+.blog2 .gambar {
+  padding: 3rem 2rem;
+  background-color: #2d1636;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid transparent;
+  border-radius: 15px;
+  transition: all 0.3s ease;
 }
 
-.kontak p {
-    margin-bottom: 10px; /* Jarak bawah dari paragraf */
+.artikel h4 {
+  color: #fff;
 }
 
-.contact-item img {
-    width: 50px; 
-    height: 50px; 
+.artikel a {
+  color: #fff;
+  text-decoration: underline;
 }
 
-.sosmed {
-    display: flex;
-    justify-content: space-around;
+.artikel img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
 }
 
-.sosmed div {
-    text-align: center;
-    margin: 0 10px;
+footer {
+  position: relative;
+  display: grid;
+  grid-template-columns: 400px repeat(3, 1fr);
+  gap: 2rem;
 }
 
-.sosmed div p {
-    margin-top: 5px;
+footer .kolom .nama {
+  max-width: 100px;
+  margin-bottom: 2rem;
+  color: var(--text-color);
+  font-size: 20px;
 }
 
-.sosmed div img {
-    width: 50px; 
-    height: 50px; 
+footer .kolom p {
+  color: var(--text-color);
+}
+
+footer .kolom h4 {
+  color: var(--text-color);
+}
+
+footer .kolom > a {
+  display: block;
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 900px) {
+  .nav-points {
+    display: none;
+  }
+  header {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  header .foto {
+    grid-area: 1/1/2/2;
+  }
+  .galeri {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .blog1,
+  .blog2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  footer {
+    grid-template-columns: 1fr 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  header .foto::before {
+    display: none;
+  }
+
+  .galeri {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .blog1,
+  .blog2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  footer {
+    grid-template-columns: 1fr 150px;
+  }
 }
